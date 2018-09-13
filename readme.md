@@ -90,6 +90,15 @@ wwwroot/
 # Visual Studio Code
 .vscode/
 ```
+## 修改 Moon/.gitignore
+```
+# IDE - VSCode
+.vscode/*
+#!.vscode/settings.json
+#!.vscode/tasks.json
+#!.vscode/launch.json
+#!.vscode/extensions.json
+```
 ## 開始建置
 ```
 Moon>npm i
