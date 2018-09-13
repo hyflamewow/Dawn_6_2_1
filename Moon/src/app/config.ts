@@ -1,0 +1,1 @@
+export const ApiUrlRoot = 'http://localhost:5000/api/';
