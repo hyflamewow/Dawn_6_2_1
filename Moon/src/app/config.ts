@@ -1,1 +1,1 @@
-export const ApiUrlRoot = 'http://localhost:5000/api/';
+export const ApiUrlRoot = 'http://localhost:5000/';

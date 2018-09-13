@@ -11,7 +11,7 @@ export class ValuesService {
   constructor(private http: HttpClient) { }
 
   getList(): Observable<string[]> {
-    return this.http.get<string[]>(ApiUrlRoot.concat('values'));
+    return this.http.get<string[]>(ApiUrlRoot.concat('api/values'));
   }
 
 }

@@ -52,14 +52,14 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ## 修改Moon
 新增src/app/config.ts
 ```ts
-export const ApiUrlRoot = 'http://localhost:5000/api/';
+export const ApiUrlRoot = 'http://localhost:5000/';
 ```
 values.component.ts
 ```ts
 import { ApiUrlRoot } from '../config';
 
 getList(): Observable<string[]> {
-    return this.http.get<string[]>(ApiUrlRoot.concat('values'));
+    return this.http.get<string[]>(ApiUrlRoot.concat('api/values'));
 }
 ```
 

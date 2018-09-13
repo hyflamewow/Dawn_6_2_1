@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Sun.Signal;
 
 namespace Sun
 {
@@ -43,6 +44,7 @@ namespace Sun
             {
                 options.Filters.Add(new CorsAuthorizationFilterFactory("CorsPolicy"));
             });
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +64,10 @@ namespace Sun
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<TimeHub>("/time");
+            });
             app.Run(async (context) =>
             {
                 if (!Path.HasExtension(context.Request.Path.Value))
