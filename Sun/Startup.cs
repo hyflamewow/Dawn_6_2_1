@@ -58,6 +58,7 @@ namespace Sun
             {
                 app.UseHsts();
             }
+            NLog.LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration("Config/nlog.config");
 
             // app.UseHttpsRedirection();
             app.UseMvc();
