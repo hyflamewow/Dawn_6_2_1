@@ -12,7 +12,7 @@ Moon>npm i -D electron@3.0.0-beta.12
 ```
 "outputPath": "dist",
 ```
-新增main.js
+新增electron/main.js, 以前放在Root, 結果不能Debug
 ```js
 const { app, BrowserWindow } = require('electron')
 
@@ -24,11 +24,11 @@ function createWindow() {
         width: 600,
         height: 600,
         backgroundColor: '#ffffff',
-        icon: `file://${__dirname}/dist/assets/logo.png`
+        icon: `file://${__dirname}/../dist/assets/logo.png`
     })
 
 
-    win.loadURL(`file://${__dirname}/dist/index.html`)
+    win.loadURL(`file://${__dirname}/../dist/index.html`)
 
     // uncomment below to open the DevTools.
     // win.webContents.openDevTools()
@@ -62,7 +62,7 @@ app.on('activate', function () {
 ```json
 "name": "moon",
 "version": "0.0.0",
-"main": "main.js",
+"main": "electron/main.js",
 "scripts": {
 "ng": "ng",
 "start": "ng serve --proxy-config proxy.conf.json",
@@ -100,6 +100,7 @@ xcopy .\moon-win32-x64\resources\electron.asar .\publish\resources\ /Y
 xcopy .\moon-win32-x64\resources\app\main.js .\publish\resources\app\ /Y
 xcopy .\moon-win32-x64\resources\app\package.json .\publish\resources\app\ /Y
 xcopy .\dist .\publish\resources\app\dist\ /Y
+xcopy .\electron .\publish\resources\app\electron\ /Y
 ```
 佈署
 ```
