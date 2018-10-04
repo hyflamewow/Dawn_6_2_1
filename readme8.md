@@ -7,7 +7,7 @@ https://www.telerik.com/kendo-angular-ui
 ## 修改Sun專案
 修改Startup.cs  
 這是為了WebAPI產Json時不要將屬性自動轉為小寫開頭的camel格式, 改寫後Json就會保持原名。
-```
+```cs
 services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
   .AddJsonOptions(options => {
     options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
@@ -35,7 +35,8 @@ public ActionResult GetValueElfList()
     return Ok(list);
 }
 ```
-## 安裝Theme
+## 修改Moon專案
+安裝Theme
 ```
 Moon>npm install --save @progress/kendo-theme-bootstrap
 ```
@@ -44,7 +45,7 @@ Moon>npm install --save @progress/kendo-theme-bootstrap
 @import "~@progress/kendo-theme-bootstrap/scss/all";
 @import "~bootstrap/scss/bootstrap";
 ```
-## 安裝Grid
+安裝Grid  
 ng add 有問題, 所以使用手動做法
 ```
 Moon>npm install --save @progress/kendo-angular-grid @progress/kendo-angular-dropdowns @progress/kendo-angular-inputs @progress/kendo-angular-dateinputs @progress/kendo-data-query @progress/kendo-angular-intl @progress/kendo-angular-l10n @progress/kendo-drawing @progress/kendo-angular-excel-export @progress/kendo-angular-buttons
